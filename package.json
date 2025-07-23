@@ -1,0 +1,27 @@
+{
+  "name": "men-stach-crud-app-lab",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayahmeftah/men-stach-crud-app-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayahmeftah/men-stach-crud-app-lab/issues"
+  },
+  "homepage": "https://github.com/ayahmeftah/men-stach-crud-app-lab#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.4"
+  }
+}

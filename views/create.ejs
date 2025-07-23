@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Add a New Book</h2>
+
+    <form action="/books/create" method="post">
+        <label for="name">Book Name</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" required>
+        <br><br>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+        <br><br>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" required>
+        <br><br>
+        <label for="rating">Rating</label>
+        <input type="number" name="rating" id="rating">
+        <br><br>
+        <button type="submit">Add New Book</button>
+    </form>
+</body>
+
+</html>
