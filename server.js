@@ -45,5 +45,20 @@ app.get("/books/:bookId", async (req, res) => {
     res.render("booksDetails.ejs",{foundBook:foundBook})
 })
 
+// app.delete('/books/:bookId', async (req, res) =>{
+//     try {
+//         const deletedBook = await Book.findByIdAndDelete(req.params.bookId);
+        
+//         if (!deletedBook) {
+//             console.log("Book not found")
+//         }else{
+//             console.log("Book deleted")
+//         }
+
+//     } catch (error) {
+//         console.log("error")
+//     }
+// })
+
 
 app.listen(3000)
