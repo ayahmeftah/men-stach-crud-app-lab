@@ -3,7 +3,12 @@ const mongoose = require('mongoose')
 const express = require("express")
 const dotenv = require("dotenv").config()
 const app = express()
+const methodOverride = require('method-override')
+const morgan = require('morgan')
 
+// Middleware
+app.use(methodOverride("_method"))
+app.use(morgan("dev"))
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
@@ -45,20 +50,35 @@ app.get("/books/:bookId", async (req, res) => {
     res.render("booksDetails.ejs",{foundBook:foundBook})
 })
 
-// app.delete('/books/:bookId', async (req, res) =>{
-//     try {
-//         const deletedBook = await Book.findByIdAndDelete(req.params.bookId);
-        
-//         if (!deletedBook) {
-//             console.log("Book not found")
-//         }else{
-//             console.log("Book deleted")
-//         }
+app.delete('/books/delete/:bookId', async (req, res) =>{
+    try {
+        const deletedBook = await Book.findByIdAndDelete(req.params.bookId);
+        res.redirect("/books")
+    } catch (error) {
+        console.log("error")
+    }
+})
 
-//     } catch (error) {
-//         console.log("error")
-//     }
-// })
+//Update
+
+app.get("/books/update/:id", async (req,res)=>{
+    try {
+        const foundBook = await Book.findById(req.params.id)
+        res.render('bookUpdate.ejs',{foundBook})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+app.put("/books/update/:id", async (req,res)=>{
+
+    try {
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id,req.body)
+        res.redirect(`/books/${req.params.id}`)
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 app.listen(3000)

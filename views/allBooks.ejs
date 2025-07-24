@@ -6,16 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('./partials/nav') %>
     <h1>All Books</h1>
 
-    <% allBooks.forEach((oneBook)=>{%>
+    <% allBooks.forEach((oneBook)=>{ %>
         <p>Book Name: <%= oneBook.name %></p>
         <p>Author: <%= oneBook.author %></p>
         <p>Description: <%= oneBook.description %></p>
         <p>Price: <%= oneBook.price %></p>
         <p>Rating: <%= oneBook.rating %> / 5</p>
         <a href="/books/<%= oneBook._id %>">View Details</a>
-        <a href="/books">Delete</a>
         
     <%})%>
 </body>

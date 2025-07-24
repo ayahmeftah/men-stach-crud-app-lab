@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <h1>Edit Book</h1>
+     <form action="/books/update/<%= foundBook._id %>?_method=put" method="post">
+        <label for="name">Book Name</label>
+        <input value="<%= foundBook.name %>" type="text" name="name" id="name" required>
+        <br><br>
+        <label for="author">Author</label>
+        <input value="<%= foundBook.author %>" type="text" name="author" id="author" required>
+        <br><br>
+        <label for="description">Description</label>
+        <input value="<%= foundBook.description %>" type="text" name="description" id="description">
+        <br><br>
+        <label for="price">Price</label>
+        <input value="<%= foundBook.price %>" type="number" name="price" id="price" required>
+        <br><br>
+        <label for="rating">Rating</label>
+        <input value="<%= foundBook.rating %>"  type="number" name="rating" id="rating">
+        <br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

@@ -6,7 +6,19 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('./partials/nav') %>
     <h1>Book Details</h1>
     <p><%= foundBook.name %></p>
+    <p><%= foundBook.author %></p>
+    <p><%= foundBook.description %></p>
+    <p><%= foundBook.price %></p>
+    <p><%= foundBook.rating %>/5</p>
+    <form action="/books/update/<%= foundBook._id %>" method="get">
+        <button type="submit">Edit</button>
+    </form>
+    <br>
+    <form action="/books/delete/<%= foundBook._id %>?_method=delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
 </body>
 </html>
