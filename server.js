@@ -6,21 +6,12 @@ const app = express()
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 const booksRoutes = require('./routes/booksRoutes')
-
+const connectToDB = require('./config/db')
 // Middleware
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-
-async function connectToDB() {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI)
-        console.log("Connected to Database")
-    } catch (error) {
-        console.log("Error connecting to the database")
-    }
-}
 
 connectToDB()
 
